@@ -130,3 +130,51 @@ console.log(car);
 Object.seal(car);
 car.color = 'black';
 console.log(car);
+// clouser
+function deductLifeCounter(student) {
+  let life = 3;
+  let lifeDeductAccess = () => {
+    if (life > 0) {
+      life--;
+      console.log(`${student} you lost a life.Your life remining ${life}`);
+    } else {
+      console.log(`${student},your 1 life is over`);
+    }
+  };
+  return lifeDeductAccess;
+}
+const maya = deductLifeCounter('maya');
+const zain = deductLifeCounter('zain');
+maya();
+maya();
+zain();
+maya();
+// pass by value
+const name3 = 'asma';
+const myFunc = (value) => {
+  value = 'maya';
+  console.log('my name is', value);
+};
+myFunc(name3);
+console.log(name3);
+// pass by reference
+const obj = {
+  color: 'red',
+  model: '1jh',
+};
+const myFunc2 = (obj) => {
+  obj.color = 'black';
+  console.log('the color is', obj);
+};
+myFunc2(obj);
+console.log(obj);
+
+// call back
+const greet = (name, msg, cb) => {
+  console.log(`hi ${name}`);
+  cb(msg);
+};
+const sayGreet = (msg) => {
+  console.log(msg);
+};
+greet('maya', 'gd n8', sayGreet);
