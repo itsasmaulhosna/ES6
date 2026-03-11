@@ -178,3 +178,113 @@ const sayGreet = (msg) => {
   console.log(msg);
 };
 greet('maya', 'gd n8', sayGreet);
+
+// d straucture
+let obj2 = {
+  name2: 'hablu',
+  year: 4,
+  country: 'bd',
+  address: 'ar345',
+  blood: 'b',
+  hobby: 'test',
+  sport: 'cert',
+};
+let { name2, year, blood, ...rest } = obj;
+console.log(name2, year, blood, rest);
+
+// data fetching
+
+// const fetchUser = async () => {
+//   try {
+//     const res = await fetch('https://jsonplaceholder.typicode.com/users');
+//     // throw new Error('unknown error');
+
+//     const data = await res.json();
+//     console.log(data);
+//   } catch (err) {
+//     console.log(err.message, 'error block triggered');
+//   } finally {
+//     console.log('finally block triggered');
+//   }
+// };
+// fetchUser();
+// arr of obj
+const products = [
+  {
+    id: 1,
+    name: 'Laptop',
+    category: 'Electronics',
+    price: 850,
+    stock: 12,
+    rating: 4.5,
+  },
+  {
+    id: 2,
+    name: 'Smartphone',
+    category: 'Electronics',
+    price: 600,
+    stock: 20,
+    rating: 4.7,
+  },
+  {
+    id: 3,
+    name: 'Headphones',
+    category: 'Accessories',
+    price: 120,
+    stock: 35,
+    rating: 4.3,
+  },
+  {
+    id: 4,
+    name: 'Keyboard',
+    category: 'Accessories',
+    price: 80,
+    stock: 15,
+    rating: 4.2,
+  },
+  {
+    id: 5,
+    name: 'Mouse',
+    category: 'Accessories',
+    price: 40,
+    stock: 50,
+    rating: 4.1,
+  },
+  {
+    id: 6,
+    name: 'Monitor',
+    category: 'Electronics',
+    price: 300,
+    stock: 10,
+    rating: 4.6,
+  },
+  {
+    id: 7,
+    name: 'Tablet',
+    category: 'Electronics',
+    price: 450,
+    stock: 18,
+    rating: 4.4,
+  },
+  {
+    id: 8,
+    name: 'Smartwatch',
+    category: 'Wearable',
+    price: 200,
+    stock: 25,
+    rating: 4.3,
+  },
+];
+// const newProducts = products.map((pd) => {
+//   return { ...pd, isExpensive: pd.price > 1000 ? true : false };
+// });
+// console.log(newProducts);
+const expensiveCate = products
+  .filter((pd) => pd.price <= 1000 && pd.category === 'Electronics')
+  .map((pd) => ({ id: pd.id, name: pd.name }));
+console.log(expensiveCate);
+if (expensiveCate) {
+  console.log('ache');
+} else {
+  console.log('nai');
+}
